@@ -2,4 +2,4 @@
 
 substack/virtual-dom-unidirectional-example
 
-Ispired by [substack/virtual-dom-unidirectional-example](https://github.com/substack/virtual-dom-unidirectional-example).
+Inspired by [substack/virtual-dom-unidirectional-example](https://github.com/substack/virtual-dom-unidirectional-example).
