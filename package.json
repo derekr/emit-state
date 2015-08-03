@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && npm run tape",
-    "ci": "standard && tape test.js",
+    "ci": "NODE_ENV=production standard && tape test.js",
     "standard": "standard",
     "tape": "tape test.js | tap-spec"
   },
