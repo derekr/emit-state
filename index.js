@@ -13,7 +13,11 @@ function updateState (store, newState) {
 }
 
 module.exports = function (actions, initial) {
-  actions = !isarray(actions) ? [] : actions
+  if (!isarray(actions)) throw new Error(
+    'You need to provide at least one action for this to be any useful.\n' +
+    '[{ type: \'myAction\', fn: function (store, payload) { ... } }]'
+  )
+
   state = initial || {}
 
   var store = new EventEmitter()

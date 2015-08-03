@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "isarray": "0.0.1",
+    "sinon": "^1.15.4",
     "tap-spec": "^4.0.2"
   }
 }
