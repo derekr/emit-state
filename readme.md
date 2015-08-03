@@ -1,4 +1,6 @@
-# emit-state [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+# emit-state
+[![Build Status](https://travis-ci.org/derekr/emit-state.svg)](https://travis-ci.org/derekr/emit-state)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 EventEmitter for mutating a single state object.
 
