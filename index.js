@@ -1,5 +1,6 @@
 var EventEmitter = require('events').EventEmitter
 var isarray = require('isarray')
+var Immutable = require('seamless-immutable')
 
 var state = {}
 
@@ -9,13 +10,14 @@ function getState () {
 
 function updateState (store, newState) {
   store.emit('update', newState, state)
-  state = newState
+  state = Immutable(newState)
 }
 
 module.exports = function (actions, initial) {
   if (!isarray(actions)) throw new Error(
     'You need to provide at least one action for this to be any useful.\n' +
-    '[{ type: \'myAction\', fn: function (store, payload) { ... } }]'
+    '[{ type: \'myAction\', fn: function (store, payload) { ... } }]\n' +
+    'https://github.com/derekr/emit-state#usage'
   )
 
   state = initial || {}

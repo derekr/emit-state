@@ -5,12 +5,12 @@ var EventEmitter = require('events').EventEmitter
 
 test('Main export function should return EventEmitter', function (assert) {
   var store = createStateEmitter([{}])
-  assert.ok(store instanceof EventEmitter, 'Returned EventEmitter')
+  assert.ok(store instanceof EventEmitter, 'returned EventEmitter')
   assert.end()
 })
 
 test('Main should throw if missing actions', function (assert) {
-  assert.throws(createStateEmitter, 'Throws on missing')
+  assert.throws(createStateEmitter, 'throws on missing')
   assert.end()
 })
 
@@ -27,3 +27,28 @@ test('Test action callback is bound', function (assert) {
   )
   assert.end()
 })
+
+test(
+  'Returned state from aciton should update global state',
+  function (assert) {
+    assert.plan(2)
+
+    var actions = [{
+      type: 'updateState',
+      fn: function (store) {
+        var state = store.getState()
+        state.updated = true
+        return state
+      }
+    }]
+
+    var store = createStateEmitter(actions)
+
+    assert.notOk(store.getState().updated, 'state.updated initially is not true')
+    store.on('update', function (state) {
+      assert.ok(state.updated, 'after action state.updated is true')
+      assert.end()
+    })
+    store.emit('updateState')
+  }
+)
