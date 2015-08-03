@@ -10,7 +10,7 @@ function getState () {
 
 function updateState (store, newState) {
   store.emit('update', newState, state)
-  state = Immutable(newState)
+  state = state.merge(newState)
 }
 
 module.exports = function (actions, initial) {
@@ -22,7 +22,7 @@ module.exports = function (actions, initial) {
     )
   }
 
-  state = initial || {}
+  state = initial ? Immutable(initial) : Immutable({})
 
   var store = new EventEmitter()
 

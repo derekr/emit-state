@@ -36,9 +36,7 @@ test(
     var actions = [{
       type: 'updateState',
       fn: function (store) {
-        var state = store.getState()
-        state.updated = true
-        return state
+        return { updated: true }
       }
     }]
 
